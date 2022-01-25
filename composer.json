@@ -1,0 +1,46 @@
+{
+    "name": "nowyouwerkn/wehotel",
+    "description": "Content management system. Creating great technology for creators.",
+    "keywords": [
+        "werkn",
+        "laravel"
+    ],
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jorge Peña Lama",
+            "email": "jorge.pena@werkn.mx",
+            "homepage" : "https://werkn.mx",
+            "role": "Project Manager"
+        },
+        {
+            "name": "Itzell Elizondo",
+            "email": "itzell@werkn.mx",
+            "homepage" : "https://werkn.mx",
+            "role": "Designer"
+        }
+    ],
+    "homepage": "https://github.com/nowyouwerkn/wehotel",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require":{
+        "php": "^8.0",
+        "laravel/framework": "^8.12",
+        "nowyouwerkn/werknhub": "dev-master"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Nowyouwerkn\\WeHotel\\": "src"
+        }
+    },
+    "extra":{
+        "laravel":{
+            "providers": [
+                "Nowyouwerkn\\WeHotel\\WeHotelServiceProvider"
+            ]
+        }
+    }
+}
