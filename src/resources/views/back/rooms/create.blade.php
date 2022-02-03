@@ -11,25 +11,77 @@
 @section('content')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Nueva Publicación</h3>
+        <h3 class="text-themecolor">Nuevo Alojamiento</h3>
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Inicio</a></li>
-            <li class="breadcrumb-item">Blog</li>
-            <li class="breadcrumb-item active">Agregar Nueva Publicación</li>
+            <li class="breadcrumb-item">Alojamientos</li>
+            <li class="breadcrumb-item active">Agregar Nueva Alojamiento</li>
         </ol>
     </div>
 </div>
 
-<form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('rooms.store') }}" enctype="multipart/form-data">
 	{{ csrf_field() }}	
+
+
+	<div class="row">
+		<div class="col col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="form-group">
+						<label>Nombre del Alojamiento</label>
+						<input class="form-control" type="text" name="title" required="">
+					</div>
+
+					<div class="form-group">
+						<label>Descripción</label>
+						<input class="form-control" type="text" name="title" required="">
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<div class="form-group">
+						<label>Imágenes</label>
+						<input class="form-control" type="text" name="title" required="">
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<div class="form-group">
+						<label>Tarifas</label>
+						<input class="form-control" type="text" name="title" required="">
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<h4>Configuración</h4>
+
+					<div class="form-group">
+						<label>Tipo de Alojamiento</label>
+						<select class="form-control">
+							<option>
+								
+							</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col col-md-8">
 			<div class="card">
 				<div class="card-body">
-					<h3>Publicación</h3>
+					<h3>Alojamiento</h3>
 					<hr>
 
 					<div class="row">

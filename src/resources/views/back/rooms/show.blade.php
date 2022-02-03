@@ -7,13 +7,13 @@
 @section('content')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Blog</h3>
+        <h3 class="text-themecolor">Hotel</h3>
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Publicaciones</a></li>
-            <li class="breadcrumb-item active">{{ $publicacion->title }}</li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Alojamientos</a></li>
+            <li class="breadcrumb-item active">{{ $room->title }}</li>
         </ol>
     </div>
 </div>
@@ -26,7 +26,7 @@
 
 <div class="row mb-4">
     <div class="col col-md-12">
-        <a href="{{ route('blog.index') }}" class="btn btn-rounded btn-success">Regresar</a>
+        <a href="{{ route('rooms.index') }}" class="btn btn-rounded btn-success">Regresar</a>
     </div>
 </div>
 
@@ -34,16 +34,16 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h3>{{ $publicacion->title }}</h3>
-                <p>{{ $publicacion->summary }}</p>
+                <h3>{{ $room->title }}</h3>
+                <p>{{ $room->summary }}</p>
 
-                <img class="my-4" style="width: 100%;" src="{{ asset('img/blog/covers/' . $publicacion->image) }}">
+                <img class="my-4" style="width: 100%;" src="{{ asset('img/blog/covers/' . $room->image) }}">
                 <ul class="list-inline">
-                	<li class="list-inline-item">{{ $publicacion->autor->name }}</li>
-                	<li class="list-inline-item">{{ $publicacion->categoria->name }}</li>
+                	<li class="list-inline-item">{{ $room->autor->name }}</li>
+                	<li class="list-inline-item">{{ $room->categoria->name }}</li>
                 </ul>
 
-                {!! $publicacion->body !!}
+                {!! $room->body !!}
             </div>
         </div>
     </div>

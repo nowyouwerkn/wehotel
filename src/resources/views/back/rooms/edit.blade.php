@@ -11,19 +11,19 @@
 @section('content')
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Editar Publicación</h3>
+        <h3 class="text-themecolor">Editar Alojamiento</h3>
     </div>
     <div class="col-md-7 align-self-center">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Inicio</a></li>
-            <li class="breadcrumb-item">Blog</li>
-            <li class="breadcrumb-item">Editar Publicación</li>
-            <li class="breadcrumb-item active">{{ $publicacion->title }}</li>
+            <li class="breadcrumb-item">Alojamientos</li>
+            <li class="breadcrumb-item">Editar Alojamiento</li>
+            <li class="breadcrumb-item active">{{ $room->title }}</li>
         </ol>
     </div>
 </div>
 
-<form method="POST" action="{{ route('blog.update', $publicacion->id) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('rooms.update', $room->id) }}" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	{{ method_field('PUT') }}
 
@@ -38,21 +38,21 @@
 						<div class="col col-md-12">
 							<div class="form-group">
 								<label for="title">Titulo</label>
-								<input class="form-control" type="text" name="title" required="" value="{{ $publicacion->title }}">
+								<input class="form-control" type="text" name="title" required="" value="{{ $room->title }}">
 							</div>
 						</div>
 
 						<div class="col col-md-12">
 							<div class="form-group">
 								<label for="summary">Resumen</label>
-								<textarea class="form-control" row="5" name="summary" required="">{{ $publicacion->summary }}</textarea>
+								<textarea class="form-control" row="5" name="summary" required="">{{ $room->summary }}</textarea>
 							</div>
 						</div>
 
 						<div class="col col-md-12">
 							<div class="form-group">
 								<label for="body">Cuerpo</label>
-								<textarea id="mymce" name="body">{!! $publicacion->body !!}</textarea>
+								<textarea id="mymce" name="body">{!! $room->body !!}</textarea>
 							</div>
 						</div>
 
@@ -62,7 +62,7 @@
 								<select class="form-control select2" name="category_id">
 									<option selected>Selecciona una Opción</option>
 									@foreach($categorias as $cat)
-										<option {{ ($cat->id == $publicacion->category_id) ? 'selected' : '' }} value="{{ $cat->id }}">{{ $cat->name }}</option>
+										<option {{ ($cat->id == $room->category_id) ? 'selected' : '' }} value="{{ $cat->id }}">{{ $cat->name }}</option>
 									@endforeach
 								</select>
 							</div>
@@ -74,7 +74,7 @@
 								<select class="form-control select2" name="autor_id">
 									<option selected>Selecciona una Opción</option>
 									@foreach($autores as $aut)
-										<option {{ ($aut->id == $publicacion->autor_id) ? 'selected' : '' }} value="{{ $aut->id }}">{{ $aut->name }}</option>
+										<option {{ ($aut->id == $room->autor_id) ? 'selected' : '' }} value="{{ $aut->id }}">{{ $aut->name }}</option>
 									@endforeach
 								</select>
 							</div>
@@ -84,7 +84,7 @@
 							<div class="form-group">
 								<label for="tag_id[]">Etiquetas</label>
 								<select class="form-control select2 select2-multiple" name="tag_id[]" multiple="multiple">
-									@foreach($publicacion->etiquetas as $tg)
+									@foreach($room->etiquetas as $tg)
 	                            		<option selected="" value="{{ $tg->id }}">{{ $tg->name }}</option>
 	                            	@endforeach
 
@@ -119,7 +119,7 @@
 					<hr>
 					<div class="form-group">
 						<label for="image">Imagen de Portada</label>
-						<input type="file" name="image" class="dropify" data-height="250" data-default-file="{{ asset('img/blog/covers/' . $publicacion->image) }}" />
+						<input type="file" name="image" class="dropify" data-height="250" data-default-file="{{ asset('img/blog/covers/' . $room->image) }}" />
 					</div>
 				</div>
 			</div>
@@ -145,7 +145,6 @@
 
     <script>
     $(document).ready(function() {
-
         if ($("#mymce").length > 0) {
             tinymce.init({
                 selector: "textarea#mymce",
